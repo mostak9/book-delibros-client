@@ -1,9 +1,10 @@
+import Navbar from "../components/Navbar";
 
 
 const UserLayout = () => {
     return (
         <div>
-            <h1 className="btn "> this is user layout</h1>
+            <Navbar/>
         </div>
     );
 };
