@@ -21,7 +21,8 @@ import CategorizedBooks from "../Pages/CategorizedBooks";
             },
             {
                 path: '/allBooks',
-                element: <AllBooks/>
+                element: <AllBooks/>,
+                loader: () => fetch('http://localhost:5000/api/v1/allBooks')
             },
             {
                 path: '/borrowedBooks',
