@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+
+   .clip-style {
+
+    clip-path: polygon(0% 0%, 83% 0, 100% 33%, 86% 100%, 0% 100%);
+
+   }
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
 }

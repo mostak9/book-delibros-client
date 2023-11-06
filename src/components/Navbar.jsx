@@ -15,8 +15,8 @@ const Navbar = () => {
           to={"/"}
           className={({ isActive }) =>
             isActive
-              ? "font-medium text-primary-color  sm:py-4 dark:text-primary-color"
-              : "font-medium hover:text-gray-500 sm:py-4  dark:hover:text-gray-400"
+              ? "font-medium text-primary-color  sm:py-2 dark:text-primary-color"
+              : "font-medium hover:text-gray-500 sm:py-2  dark:hover:text-gray-400"
           }
         >
           Home
@@ -28,8 +28,8 @@ const Navbar = () => {
           to={"/addBook"}
           className={({ isActive }) =>
             isActive
-              ? "font-medium text-primary-color  sm:py-4 dark:text-primary-color"
-              : "font-medium  hover:text-gray-500 sm:py-4  dark:hover:text-gray-400"
+              ? "font-medium text-primary-color  sm:py-2 dark:text-primary-color"
+              : "font-medium  hover:text-gray-500 sm:py-2  dark:hover:text-gray-400"
           }
         >
           Add Book
@@ -40,8 +40,8 @@ const Navbar = () => {
           to={"/allBooks"}
           className={({ isActive }) =>
             isActive
-              ? "font-medium text-primary-color  sm:py-4 dark:text-primary-color"
-              : "font-medium t hover:text-gray-500 sm:py-4  dark:hover:text-gray-400"
+              ? "font-medium text-primary-color  sm:py-2 dark:text-primary-color"
+              : "font-medium t hover:text-gray-500 sm:py-2  dark:hover:text-gray-400"
           }
         >
           All Books
@@ -52,8 +52,8 @@ const Navbar = () => {
           to={"/borrowedBooks"}
           className={({ isActive }) =>
             isActive
-              ? "font-medium text-primary-color  sm:py-4 dark:text-primary-color"
-              : "font-medium hover:text-gray-500 sm:py-4  dark:hover:text-gray-400"
+              ? "font-medium text-primary-color  sm:py-2 dark:text-primary-color"
+              : "font-medium hover:text-gray-500 sm:py-2  dark:hover:text-gray-400"
           }
         >
           Borrowed Books
@@ -65,11 +65,12 @@ const Navbar = () => {
   return (
     <div className="bg-base-100">
       <div>
-      <div className="pb-5 px-5 md:px-10 pt-4 flex justify-end items-center border-b-2 border-b-neutral-500">
+      <div className="pb-5 px-2 md:px-10 pt-4 flex justify-between items-center border-b-2 border-b-neutral-500">
+      <a className="btn btn-ghost normal-case text-xl"><img src={isDark ? LogoLight : LogoDark} className="w-36 md:w-52" alt="" /></a>
         <div className="flex items-center gap-10">
-            <button className="btn  btn-circle btn-outline text-2xl" onClick={() => handleTheme(!isDark)}>{isDark ?  <CiLight/>: <CiDark/>}</button>
+            <button className="btn btn-sm btn-circle btn-outline text-2xl" onClick={() => handleTheme(!isDark)}>{isDark ?  <CiLight/>: <CiDark/>}</button>
             <div>
-                <button className="btn btn-outline border-primary-color border-2 hover:bg-primary-color hover:border-primary-color  text-primary-color hover:text-neutral-50"><BiSolidLogInCircle className="text-xl"/> Sign In</button>
+                <button className="btn btn-sm btn-outline border-primary-color border-2 hover:bg-primary-color hover:border-primary-color  text-primary-color hover:text-neutral-50"><BiSolidLogInCircle className="text-xl"/> Sign In</button>
             </div>
         </div>
       </div>
@@ -77,8 +78,8 @@ const Navbar = () => {
       <div className="navbar">
         
         <div className="lg:navbar-start w-full flex justify-between">
-        <a className="btn btn-ghost normal-case text-xl"><img src={isDark ? LogoLight : LogoDark} className="w-full h-full object-fill" alt="" /></a>
-          <div className="dropdown dropdown-end">
+        {/* <a className="btn btn-ghost normal-case text-xl"><img src={isDark ? LogoLight : LogoDark} className="w-full h-full object-fill" alt="" /></a> */}
+          <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
