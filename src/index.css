@@ -11,6 +11,12 @@
     clip-path: polygon(0% 0%, 83% 0, 100% 33%, 86% 100%, 0% 100%);
 
    }
+   .custom-gradient {
+    background-image: linear-gradient(to right, #4F44E0, #F72585); /* Define your desired gradient here */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 body {
