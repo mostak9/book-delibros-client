@@ -16,7 +16,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "font-medium text-primary-color  sm:py-4 dark:text-primary-color"
-              : "font-medium text-gray-800 hover:text-gray-500 sm:py-4 dark:text-gray-200 dark:hover:text-gray-400"
+              : "font-medium hover:text-gray-500 sm:py-4  dark:hover:text-gray-400"
           }
         >
           Home
@@ -29,7 +29,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "font-medium text-primary-color  sm:py-4 dark:text-primary-color"
-              : "font-medium text-gray-800 hover:text-gray-500 sm:py-4 dark:text-gray-200 dark:hover:text-gray-400"
+              : "font-medium  hover:text-gray-500 sm:py-4  dark:hover:text-gray-400"
           }
         >
           Add Book
@@ -41,7 +41,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "font-medium text-primary-color  sm:py-4 dark:text-primary-color"
-              : "font-medium text-gray-800 hover:text-gray-500 sm:py-4 dark:text-gray-200 dark:hover:text-gray-400"
+              : "font-medium t hover:text-gray-500 sm:py-4  dark:hover:text-gray-400"
           }
         >
           All Books
@@ -53,7 +53,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "font-medium text-primary-color  sm:py-4 dark:text-primary-color"
-              : "font-medium text-gray-800 hover:text-gray-500 sm:py-4 dark:text-gray-200 dark:hover:text-gray-400"
+              : "font-medium hover:text-gray-500 sm:py-4  dark:hover:text-gray-400"
           }
         >
           Borrowed Books
@@ -97,7 +97,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLink}
             </ul>
