@@ -14,7 +14,7 @@ const Categories = () => {
         <div className="max-w-sm  border border-gray-200 rounded-lg shadow dark:border-gray-700">
           <div className="pt-5 relative h-44">
             <img
-              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-1000"
+              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
               src={novel}
               alt=""
             />
@@ -23,7 +23,7 @@ const Categories = () => {
             </h5>
           </div>
           <div className="p-5">
-            <Link className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
+            <Link to={'/categorizedBooks/novel'} className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
               Browse
             </Link>
           </div>
@@ -31,7 +31,7 @@ const Categories = () => {
         <div className="max-w-sm  border border-gray-200 rounded-lg shadow dark:border-gray-700">
           <div className="pt-5 relative h-44">
             <img
-              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-1000"
+              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
               src={career}
               alt=""
             />
@@ -40,7 +40,7 @@ const Categories = () => {
             </h5>
           </div>
           <div className="p-5">
-            <Link className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
+            <Link to={'/categorizedBooks/career'} className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
               Browse
             </Link>
           </div>
@@ -48,7 +48,7 @@ const Categories = () => {
         <div className="max-w-sm  border border-gray-200 rounded-lg shadow dark:border-gray-700">
           <div className="pt-5 relative h-44">
             <img
-              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-1000"
+              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
               src={technology}
               alt=""
             />
@@ -57,7 +57,7 @@ const Categories = () => {
             </h5>
           </div>
           <div className="p-5">
-            <Link className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
+            <Link to={'/categorizedBooks/technology'} className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
               Browse
             </Link>
           </div>
@@ -65,7 +65,7 @@ const Categories = () => {
         <div className="max-w-sm  border border-gray-200 rounded-lg shadow dark:border-gray-700">
           <div className="pt-5 relative h-44">
             <img
-              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-1000"
+              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
               src={astronomy}
               alt=""
             />
@@ -74,7 +74,7 @@ const Categories = () => {
             </h5>
           </div>
           <div className="p-5">
-            <Link className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
+            <Link to={'/categorizedBooks/astronomy'} className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
               Browse
             </Link>
           </div>

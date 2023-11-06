@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LogoLight from '../assets/logo_light.png'
 import LogoDark from '../assets/logo_dark.png'
 import { useContext } from "react";
@@ -66,7 +66,7 @@ const Navbar = () => {
     <div className="bg-base-100">
       <div>
       <div className="pb-5 px-2 md:px-10 pt-4 flex justify-between items-center border-b-2 border-b-neutral-500">
-      <a className="btn btn-ghost normal-case text-xl"><img src={isDark ? LogoLight : LogoDark} className="w-36 md:w-52" alt="" /></a>
+      <Link to={'/'} className="btn btn-ghost normal-case text-xl"><img src={isDark ? LogoLight : LogoDark} className="w-36 md:w-52" alt="" /></Link>
         <div className="flex items-center gap-10">
             <button className="btn btn-sm btn-circle btn-outline text-2xl" onClick={() => handleTheme(!isDark)}>{isDark ?  <CiLight/>: <CiDark/>}</button>
             <div>

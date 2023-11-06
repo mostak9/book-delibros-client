@@ -102,11 +102,11 @@
     "quantity": 3,
     "description": "Ever felt overwhelmed by life's small irritations? You know what can help: “Don't Sweat the Small Stuff” by Richard Carlson, a book about perspective, peace, and happiness. Learn why this classic self-help book has captured hearts worldwide, and get ready to leave your stress behind!",
     "id": 7,
-    "category": "Career"
+    "category": "career"
   },
   {
     "author": "Deborah G. Johnson and Jameson M. Wetmore",
-    "rating": 4.5,
+    "rating": 3.5,
     "country": "United States",
     "imageLink": "https://enterprisersproject.com/sites/default/files/styles/medium/public/2022-01/tech-society-book.jpeg?itok=KfMZ8t-9",
     "language": "English",
@@ -117,7 +117,7 @@
     "quantity": 5,
     "description": "Writings by thinkers ranging from Rokeya Sakhawat Hossain to Bruno Latour that focus on the interconnections of technology, society, and values. Technological change does not happen in a vacuum; decisions about which technologies to develop, fund, market, and use engage ideas about values as well as calculations of costs and benefits. In order to influence the development of technology for the better, we must first understand how technology and society are inextricably bound together. Many of the texts illustrate how race and gender are intertwined with technology",
     "id": 8,
-    "category": "Technology"
+    "category": "technology"
   },
   {
     "author": "Carl Sagan",
@@ -132,7 +132,7 @@
     "quantity": 4,
     "description": "Cosmos is a popular science book written by astronomer and Pulitzer Prize-winning author Carl Sagan. It was published in 1980 as a companion piece to the PBS mini-series Cosmos: A Personal Voyage with which it was co-developed and intended to complement. Each of the book’s 13 illustrated chapters corresponds to one of the 13 episodes of the television series. Just a few of the ideas explored in Cosmos include the history and mutual development of science and civilization, the nature of the Universe, human and robotic space exploration, the inner workings of the cell and the DNA that controls it, and the dangers and future implications of nuclear war. ",
     "id": 9,
-    "category": "Astronomy"
+    "category": "astronomy"
   },
   {
     "author": "Joe Navarro",
@@ -147,7 +147,7 @@
     "quantity": 6,
     "description": "Explore the evolving landscape of leadership in the digital era. This book provides practical insights and strategies for leaders navigating the challenges of the modern business world.",
     "id": 10,
-    "category": "Career"
+    "category": "career"
   },
   {
     "author": "Seth Godin",
@@ -162,7 +162,7 @@
     "quantity": 7,
     "description": "Yet another easily digestible social marketplace commentary from the blogger/author who penned Purple Cow and Small is the New Big, Godin prescribes a cleverly counter-intuitive way to approach one's potential for success. Smart, honest, and refreshingly free of self-help posturing, this primer on winning-through-quitting is at once motivational and comically indifferent, making the lofty goal of 'becoming the best in the world' an achievable proposition-all you need is to 'start doing some quitting.' The secret to 'strategic quitting' is seeking, understanding and embracing the Dip,the long slog between starting and mastery in which those without the determination or will find themselves burning out. As such, Godin demonstrates how to identify and quit your Cul-de-Sac and Cliff situations, in which no amount of work will lead to success. Godin provides tips for finding your Dip, taking advantage of it and becoming one of the few (inevitably valuable) players to emerge on the other side; he also provides guidelines for quitting with confidence.",
     "id": 11,
-    "category": "Career"
+    "category": "career"
   },
   {
     "author": "Henry Kissinger, Eric Schmidt, and Daniel Huttenlocher",
@@ -177,7 +177,7 @@
     "quantity": 5,
     "description": "Three of the world's most accomplished and deep thinkers come together to explore Artificial Intelligence (AI) and the way it is transforming human society – and what this technology means for us all. AI is coming online in searching, streaming, medicine, education, and many other fields and, in so doing, transforming how humans are experiencing reality.",
     "id": 12,
-    "category": "Technology"
+    "category": "technology"
   },
   {
     "author": "Darrell K. Rigby, Sarah Elk, and Steve Berez",
@@ -192,7 +192,7 @@
     "quantity": 4,
     "description": "Agile has the power to transform work – but only if it’s implemented the right way. For decades business leaders have been painfully aware of a huge chasm: They aspire to create nimble, flexible enterprises. But their day-to-day reality is silos, sluggish processes, and stalled innovation. The authors break down how agile really works, show what not to do, and explain the crucial importance of scaling agile properly in order to reap its full benefit",
     "id": 13,
-    "category": "Technology"
+    "category": "technology"
   },
   {
     "author": "Stephen Hawking",
@@ -207,7 +207,7 @@
     "quantity": 6,
     "description": "In A Brief History of Time, Hawking writes in non-technical terms about the structure, origin, development and eventual fate of the Universe, which is the object of study of astronomy and modern physics. He talks about basic concepts like space and time, basic building blocks that make up the Universe (such as quarks) and the fundamental forces that govern it (such as gravity). He writes about cosmological phenomena such as the Big Bang and black holes. He discusses two major theories, general relativity and quantum mechanics, that modern scientists use to describe the Universe. Finally, he talks about the search for a unifying theory that describes everything in the Universe in a coherent manner.",
     "id": 14,
-    "category": "Astronomy"
+    "category": "astronomy"
   },
   {
     "author": "Carl Allchin",
