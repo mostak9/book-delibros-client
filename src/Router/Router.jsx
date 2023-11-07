@@ -10,6 +10,7 @@ import ReadBook from "../Pages/ReadBook";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateBook from "../Pages/UpdateBook";
 
  const router = createBrowserRouter([
     {
@@ -45,6 +46,11 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
             {
                 path: '/readBook/:id',
                 element:<PrivateRoute><ReadBook/></PrivateRoute>
+            },
+            {
+                path: '/updateBook/:id',
+                element: <PrivateRoute><UpdateBook/></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/api/v1/allBooks/${params.id}`)
             }
         ]
     },

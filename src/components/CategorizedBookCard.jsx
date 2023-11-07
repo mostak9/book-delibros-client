@@ -23,7 +23,7 @@ const CategorizedBookCard = ({ book }) => {
         <p className="text-gray-700 dark:text-gray-400">by {author}</p>
         <p className='text-gray-600'><span className='font-semibold'>Category:</span> {category}</p>
          <Rating style={{ width: '100px' }} value={parseFloat(rating)} readOnly={true} />
-        <Link to={`/bookDetails/${id}`} className="btn btn-ghost text-primary-color">See book</Link>
+        <Link to={`/bookDetails/${book._id}`} className="btn btn-ghost text-primary-color">See book</Link>
       </div>
     </div>
   )

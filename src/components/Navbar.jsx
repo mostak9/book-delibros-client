@@ -10,7 +10,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const Navbar = () => {
   const { isDark, handleTheme } = useContext(ThemeContext);
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const navLink = (
     <>
       <li>

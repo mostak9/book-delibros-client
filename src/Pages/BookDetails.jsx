@@ -11,10 +11,13 @@ const BookDetails = () => {
 
   const { data, isLoading } = useQuery({
     queryKey: ["book"],
-    queryFn: () =>
-      axios
-        .get(`http://localhost:5000/api/v1/allBooks/${params.id}`)
-        .then((res) => res.data),
+    queryFn: async () =>{
+    const res = await axios.get(`http://localhost:5000/api/v1/allBooks/${params.id}`);
+    console.log(res.data);
+    return res.data;
+    }
+      
+        
   });
 
   if (isLoading)
@@ -41,7 +44,7 @@ const BookDetails = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
       <div className="flex flex-col items-center gap-4">
         <img src={imageLink} className="w-2/3 mx-auto" alt="" />
-        <Link to={`/readBook/${id}`} className="btn bg-primary-color btn- btn-wide">
+        <Link to={`/readBook/${data._id}`} className="btn bg-primary-color btn- btn-wide">
           Read the Book
         </Link>
         <button className="btn btn-outline btn-wide text-primary-color border-primary-color">

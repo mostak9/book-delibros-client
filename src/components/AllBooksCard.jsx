@@ -23,8 +23,8 @@ const AllBooksCard = ({book}) => {
         <p className='text-gray-600'><span className='font-semibold'>Category:</span> {category}</p>
          <Rating style={{ width: '100px' }} value={parseFloat(rating)} readOnly={true} />
         <div className='flex flex-col'>
-        <Link to={`/bookDetails/${id}`} className=" btn-link text-primary-color ">See book</Link>
-        <Link  className=" btn-link text-primary-color ">Update book</Link>
+        <Link to={`/bookDetails/${book._id}`} className=" btn-link text-primary-color ">See book</Link>
+        <Link to={`/updateBook/${book._id}`} className=" btn-link text-primary-color ">Update book</Link>
         </div>
       </div>
     </div>
