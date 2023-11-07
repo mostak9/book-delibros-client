@@ -4,7 +4,7 @@ import { Rating } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const BookDetails = () => {
   const params = useParams();
@@ -41,9 +41,9 @@ const BookDetails = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
       <div className="flex flex-col items-center gap-4">
         <img src={imageLink} className="w-2/3 mx-auto" alt="" />
-        <button className="btn bg-primary-color btn- btn-wide">
+        <Link to={`/readBook/${id}`} className="btn bg-primary-color btn- btn-wide">
           Read the Book
-        </button>
+        </Link>
         <button className="btn btn-outline btn-wide text-primary-color border-primary-color">
           Borrow The book
         </button>
