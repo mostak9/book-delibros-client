@@ -5,7 +5,7 @@ import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
 
 const AllBooksCard = ({book}) => {
-    const { author, rating, imageLink, title, category } = book;
+    const { author, rating, imageLink, title, category, id } = book;
   return (
     <div
       className="border-2 h-80 px-4 py-6 bg-base-100 rounded-lg hover:shadow-2xl hover:shadow-gray-500 duration-700 hover:border-primary-color flex items-center justify-center gap-4 space-y-3"
@@ -23,8 +23,8 @@ const AllBooksCard = ({book}) => {
         <p className='text-gray-600'><span className='font-semibold'>Category:</span> {category}</p>
          <Rating style={{ width: '100px' }} value={parseFloat(rating)} readOnly={true} />
         <div className='flex flex-col'>
-        <Link className=" btn-link text-primary-color ">See book</Link>
-        <Link className=" btn-link text-primary-color ">Update book</Link>
+        <Link to={`/bookDetails/${id}`} className=" btn-link text-primary-color ">See book</Link>
+        <Link  className=" btn-link text-primary-color ">Update book</Link>
         </div>
       </div>
     </div>

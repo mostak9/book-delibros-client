@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 
 const CategorizedBookCard = ({ book }) => {
-  const { author, rating, imageLink, title, category } = book;
+  const { author, rating, imageLink, title, category, id } = book;
   return (
     <div
       key={book._id}
@@ -22,7 +23,7 @@ const CategorizedBookCard = ({ book }) => {
         <p className="text-gray-700 dark:text-gray-400">by {author}</p>
         <p className='text-gray-600'><span className='font-semibold'>Category:</span> {category}</p>
          <Rating style={{ width: '100px' }} value={parseFloat(rating)} readOnly={true} />
-        <button className="btn btn-ghost text-primary-color">See book</button>
+        <Link to={`/bookDetails/${id}`} className="btn btn-ghost text-primary-color">See book</Link>
       </div>
     </div>
   )
