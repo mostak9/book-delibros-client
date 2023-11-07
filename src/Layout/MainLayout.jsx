@@ -20,6 +20,8 @@ const MainLayout = () => {
   const handleTheme = (dark) => {
     localStorage.setItem("dark", JSON.stringify(dark));
     setIsDark(dark);
+    const doc = document.documentElement;
+    doc.setAttribute("data-theme" , dark ? 'dark': 'light')
   };
   const themeInfo = { isDark, handleTheme };
 

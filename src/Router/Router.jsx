@@ -7,6 +7,7 @@ import BorrowedBooks from "../Pages/BorrowedBooks";
 import CategorizedBooks from "../Pages/CategorizedBooks";
 import BookDetails from "../Pages/BookDetails";
 import ReadBook from "../Pages/ReadBook";
+import Login from "../Pages/Login";
 
  const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ import ReadBook from "../Pages/ReadBook";
                 element: <ReadBook/>
             }
         ]
+    },
+    {
+        path: '/login',
+        element: <Login/>
     }
 ])
 

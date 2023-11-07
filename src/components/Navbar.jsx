@@ -70,7 +70,7 @@ const Navbar = () => {
         <div className="flex items-center gap-10">
             <button className="btn btn-sm btn-circle btn-outline text-2xl" onClick={() => handleTheme(!isDark)}>{isDark ?  <CiLight/>: <CiDark/>}</button>
             <div>
-                <button className="btn btn-sm btn-outline border-primary-color border-2 hover:bg-primary-color hover:border-primary-color  text-primary-color hover:text-neutral-50"><BiSolidLogInCircle className="text-xl"/> Sign In</button>
+                <Link to={'/login'} className="btn btn-sm btn-outline border-primary-color border-2 hover:bg-primary-color hover:border-primary-color  text-primary-color hover:text-neutral-50"><BiSolidLogInCircle className="text-xl"/> Login</Link>
             </div>
         </div>
       </div>
