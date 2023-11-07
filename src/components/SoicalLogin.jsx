@@ -2,17 +2,18 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import {useNavigate} from 'react-router-dom'
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SoicalLogin = () => {
   const {googleLogin, githubLogin} = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const login = media => {
     media()
     .then(res => {
       console.log(res.user);
-      navigate('/')
+      navigate(location.state || '/');
     })
     .catch(err => console.error(err))
   }

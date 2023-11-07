@@ -21,6 +21,7 @@ export default {
                 neutral: colors.trueGray,
                 gray: colors.coolGray,
                 slate: colors.blueGray,
+                blue: colors.blue,
     },
     extend: {},
   },
