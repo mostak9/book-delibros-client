@@ -5,7 +5,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import {useNavigate} from 'react-router-dom'
 
 const SoicalLogin = () => {
-  const {googleLogin} = useContext(AuthContext);
+  const {googleLogin, githubLogin} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const login = media => {
@@ -26,7 +26,7 @@ const SoicalLogin = () => {
           <FcGoogle className="text-xl" />
           Sign in with Google
         </button>
-        <button className="btn btn-outline w-full btn-sm">
+        <button onClick={() => login(githubLogin)} className="btn btn-outline w-full btn-sm">
           <AiFillGithub className="text-xl" />
           Sign in with Github
         </button>

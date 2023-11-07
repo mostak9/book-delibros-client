@@ -5,10 +5,18 @@ import logoLight from '../assets/logo_light.png';
 import logoDark from '../assets/logo_dark.png';
 import SoicalLogin from "../components/SoicalLogin";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import swal from "sweetalert";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [dark, setDark] = useState(null)
+  const [error, setError]  = useState('');
+  const {logIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
 
   useEffect(() => {
@@ -23,6 +31,28 @@ const Login = () => {
     }
   }, []);
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    if (password.length < 6) {
+      setError("⚠️password must be at least 6 characters");
+      return;
+    }
+    logIn(email, password)
+      .then(() => {
+        swal("Success!", "Logged in successfully", "success");
+        setError("");
+        navigate(location.state || "/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError("⚠️Invalid email or password");
+      });
+  }
+
   return (
     <div className="mt-10">
       <div className="max-w-5xl min-h-[250px] m-auto shadow-2xl px-10 py-16 lg:flex items-center justify-between">
@@ -32,7 +62,7 @@ const Login = () => {
           <h1 className="text-4xl font-bold mt-9 text-center">Login</h1>
         </div>
         <div className="lg:w-1/3">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="grid gap-y-4">
               {/* input field */}
               <div>
@@ -42,7 +72,6 @@ const Login = () => {
                 <div className="relative">
                   <input
                     type="email"
-                    id="email"
                     name="email"
                     className="py-3 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 "
                     required
@@ -76,12 +105,12 @@ const Login = () => {
                     {showPass ? <AiFillEyeInvisible /> : <AiFillEye />}
                   </p>
                 </div>
-                {/* <p
+                <p
                           className="italic text-xs text-red-600 mt-2"
                           id="password-error"
                         >
                           {error}
-                        </p> */}
+                        </p>
               </div>
 
               <button
