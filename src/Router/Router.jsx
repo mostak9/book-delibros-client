@@ -8,6 +8,7 @@ import CategorizedBooks from "../Pages/CategorizedBooks";
 import BookDetails from "../Pages/BookDetails";
 import ReadBook from "../Pages/ReadBook";
 import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
  const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ import Login from "../Pages/Login";
     {
         path: '/login',
         element: <Login/>
+    },
+    {
+        path: 'register',
+        element: <Register/>
     }
 ])
 
