@@ -7,9 +7,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, FreeMode } from "swiper/modules";
 import {BsArrowLeft, BsArrowRight} from 'react-icons/bs';
+import { Button } from "@material-tailwind/react";
+import { useState } from "react";
 
 const AllBooks = () => {
-  const books = useLoaderData();
+  const [filter, setFilter] = useState(false);
+  const loadedBooks = useLoaderData();
+  const books = filter ? loadedBooks.filter(book =>  book?.quantity > 0) : loadedBooks;
   const technologies = books.filter((book) => book.category === "technology");
   const careers = books.filter(book => book.category === 'career');
   const novels = books.filter(book => book.category === 'novel');
@@ -18,6 +22,7 @@ const AllBooks = () => {
 
   return <div>
     <HeadBanner title="All"/>
+    <Button onClick={() => setFilter(true)} disabled={filter} className="mt-5">{filter? 'Filtered by available books': 'Filter by available books'}</Button>
     {/* career */}
    <div>
    <Heading title="Career Category"/>
