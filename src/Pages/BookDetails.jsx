@@ -1,23 +1,38 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Rating } from "@smastrom/react-rating";
-
+import { AuthContext } from "../AuthProvider/AuthProvider";
 import "@smastrom/react-rating/style.css";
-
 import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useContext } from "react";
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  Input,
+  Typography,
+} from "@material-tailwind/react";
+import swal from "sweetalert";
 
 const BookDetails = () => {
   const params = useParams();
+  const { user } = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(!open);
+  const [isBorrow, setIsBorrow] = useState(true);
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryKey: ["book"],
-    queryFn: async () =>{
-    const res = await axios.get(`http://localhost:5000/api/v1/allBooks/${params.id}`);
-    console.log(res.data);
-    return res.data;
-    }
-      
-        
+    queryFn: async () => {
+      const res = await axios.get(
+        `http://localhost:5000/api/v1/allBooks/${params.id}`
+      );
+      return res.data;
+    },
+    // refetchOnWindowFocus: true,
   });
 
   if (isLoading)
@@ -40,16 +55,106 @@ const BookDetails = () => {
     description,
   } = data;
 
+  
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const returnDate = form.date.value;
+    const info = {name, email, returnDate, bookId: data._id};
+    console.log(info);
+    handleOpen();
+    axios.post('http://localhost:5000/api/v1/borrowBook', info)
+    .then(res => {
+      console.log(res.data);
+      if(res.data.insertedId && data.quantity) {
+        swal('Success!', "You borrowed the book", 'success');
+        axios.patch(`http://localhost:5000/api/v1/updateQuantity/${data._id}`, {quantity: data.quantity - 1}).then(res => {
+          console.log(res.data);
+          if(res.data.modifiedCount){
+            refetch();
+          }
+        })
+      }
+    }
+    )
+  }
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
       <div className="flex flex-col items-center gap-4">
         <img src={imageLink} className="w-2/3 mx-auto" alt="" />
-        <Link to={`/readBook/${data._id}`} className="btn bg-primary-color btn- btn-wide">
+        <Link
+          to={`/readBook/${data._id}`}
+          className="btn bg-primary-color btn- btn-wide"
+        >
           Read the Book
         </Link>
-        <button className="btn btn-outline btn-wide text-primary-color border-primary-color">
+
+        <button
+          onClick={handleOpen}
+          disabled={data.quantity ? false : true}
+          className={`btn btn-outline btn-wide text-primary-color border-primary-color  ${data.quantity && 'disabled'}`}
+        >
           Borrow The book
         </button>
+
+        <Dialog open={open} size="xs" handler={handleOpen}>
+          <div className="flex items-center justify-between">
+            <DialogHeader className="flex flex-col items-start">
+              {" "}
+              <Typography className="mb-1" variant="h4">
+                Borrow the book
+              </Typography>
+            </DialogHeader>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="mr-3 h-5 w-5"
+              onClick={handleOpen}
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <form onSubmit={handleSubmit} action="">
+            <DialogBody>
+              <Typography className="mb-10 -mt-7 " color="gray" variant="lead">
+                Give required information
+              </Typography>
+              <div className="grid gap-6">
+                <Input
+                  type="text"
+                  name="name"
+                  value={user.displayName}
+                  required
+                  label="User Name"
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  value={user.email}
+                  required
+                  label="Email"
+                />
+                <Input type="date" name="date" required label="Date" />
+              </div>
+            </DialogBody>
+            <DialogFooter className="space-x-2">
+              <Button variant="text" color="red" onClick={handleOpen}>
+                cancel
+              </Button>
+              <Button type="submit" variant="gradient" color="blue">
+                Borrow
+              </Button>
+            </DialogFooter>
+          </form>
+        </Dialog>
       </div>
       <div className="col-span-2 px-4">
         <div className="space-y-3">
@@ -145,12 +250,23 @@ const BookDetails = () => {
               </div>
             </div>
             <div>
-                <p className="font-bold text-xl">{author}</p>
-                <p className="text-sm text-gray-500 flex items-center gap-3"><span>86 books</span><span>4,090 followers</span></p>
+              <p className="font-bold text-xl">{author}</p>
+              <p className="text-sm text-gray-500 flex items-center gap-3">
+                <span>86 books</span>
+                <span>4,090 followers</span>
+              </p>
             </div>
           </div>
           <div className="mt-5 text-gray-500">
-          {author} is the author of two dozen books and novellas, most recently {title}, The Family Plot, The Agony House, and the Philip K. Dick Award nominee Maplecroft; but she is perhaps best known for the steampunk pulp adventures of the Clockwork Century, beginning with Boneshaker. Her works have been nominated for the Hugo and Nebula awards for science fiction, and have won the Locus Award (among others) – and over the years, they’ve been translated into nine languages in eleven countries. Cherie lives in Seattle, WA, with her husband and a menagerie of exceedingly photogenic pets.
+            {author} is the author of two dozen books and novellas, most
+            recently {title}, The Family Plot, The Agony House, and the Philip
+            K. Dick Award nominee Maplecroft; but she is perhaps best known for
+            the steampunk pulp adventures of the Clockwork Century, beginning
+            with Boneshaker. Her works have been nominated for the Hugo and
+            Nebula awards for science fiction, and have won the Locus Award
+            (among others) – and over the years, they’ve been translated into
+            nine languages in eleven countries. Cherie lives in Seattle, WA,
+            with her husband and a menagerie of exceedingly photogenic pets.
           </div>
         </div>
       </div>
