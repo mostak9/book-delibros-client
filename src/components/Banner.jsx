@@ -72,11 +72,11 @@ const Banner = () => {
               <div className="max-w-xl">
                 <section className="min-h-[80vh] flex items-center justify-center py-12">
                   <div className="">
-                    <h2 className="text-3xl dark:text-white font-bold mb-8">
+                    <h2 className="text-3xl text-white font-bold mb-8">
                       Upcoming Events and Workshops
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2  gap-8 dark:text-black">
+                    <div className="grid grid-cols-1 md:grid-cols-2  gap-8 text-black">
                       <div className="event bg-gradient-to-r from-[#7F7FD5] to-[#86A8E7] p-6 rounded-lg shadow-md">
                         <div className="event-details mb-4">
                           <h3 className="text-xl font-bold mb-2">

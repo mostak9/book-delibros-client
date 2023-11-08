@@ -8,7 +8,7 @@ const OurInfo = () => {
     const [join, setJoin] = useState(false)
 
     return (
-        <div className='flex flex-col md:flex-row gap-14 items-center mt-16'>
+        <div className='flex flex-col md:flex-row gap-14 items-center mt-20'>
             <div className='lg:w-2/3 md:clip-style' >
                 <img src={Bg} className='w-full h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-1000 ' alt="" />
             </div>
@@ -46,7 +46,7 @@ const OurInfo = () => {
                 setAbout(false);
                 setGoal(false);
                 setJoin(true);
-               }} className={join ? 'w-full h-full px-5 py-3 lg:p-11 bg-gray-700 hover:bg-gray-800 text-white font-bold border-b' : 'w-full h-full px-5 py-3 lg:p-11 bg-gray-900 hover:bg-gray-800 text-white font-bold border-b'}>Join The lLibrary</div>
+               }} className={join ? 'w-full h-full px-5 py-3 lg:p-11 bg-gray-700 hover:bg-gray-800 text-white font-bold border-b' : 'w-full h-full px-5 py-3 lg:p-11 bg-gray-900 hover:bg-gray-800 text-white font-bold border-b'}>Join The Library</div>
             </div>
             </div>
 

@@ -10,8 +10,8 @@ const Categories = () => {
     <div className="mt-10">
       <Heading title="Browse By Category" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-        <div className="max-w-sm  border border-gray-200 rounded-lg shadow dark:border-gray-700">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 ">
+        <div className="max-w-sm mx-auto  border border-gray-200 rounded-lg shadow dark:border-gray-700">
           <div className="pt-5 relative h-44">
             <img
               className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
@@ -28,7 +28,7 @@ const Categories = () => {
             </Link>
           </div>
         </div>
-        <div className="max-w-sm  border border-gray-200 rounded-lg shadow dark:border-gray-700">
+        <div className="max-w-sm mx-auto  border border-gray-200 rounded-lg shadow dark:border-gray-700">
           <div className="pt-5 relative h-44">
             <img
               className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
@@ -45,7 +45,7 @@ const Categories = () => {
             </Link>
           </div>
         </div>
-        <div className="max-w-sm  border border-gray-200 rounded-lg shadow dark:border-gray-700">
+        <div className="max-w-sm mx-auto  border border-gray-200 rounded-lg shadow dark:border-gray-700">
           <div className="pt-5 relative h-44">
             <img
               className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
@@ -62,7 +62,7 @@ const Categories = () => {
             </Link>
           </div>
         </div>
-        <div className="max-w-sm  border border-gray-200 rounded-lg shadow dark:border-gray-700">
+        <div className="max-w-sm  mx-auto  border border-gray-200 rounded-lg shadow dark:border-gray-700">
           <div className="pt-5 relative h-44">
             <img
               className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
