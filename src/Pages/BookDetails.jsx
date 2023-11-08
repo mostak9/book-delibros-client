@@ -70,7 +70,7 @@ const BookDetails = () => {
     const name = form.name.value;
     const email = form.email.value;
     const returnDate = form.date.value;
-    const info = {name, email, returnDate, bookId: data._id};
+    const info = {name, email, returnDate, bookId: data._id, img: data.imageLink, title: data.title, author: data.author};
     console.log(info);
     handleOpen();
     axios.post('http://localhost:5000/api/v1/borrowBook', info)

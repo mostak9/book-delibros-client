@@ -3,7 +3,7 @@ import LogoDark from '../assets/logo_dark.png';
 
 const Footer = () => {
   return (
-    <footer className="px-4 divide-y dark:bg-gray-800 dark:text-gray-100 mt-10">
+    <footer className="px-4 divide-y bg-black/70 mt-10">
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
           <a
@@ -15,8 +15,8 @@ const Footer = () => {
           </a>
         </div>
         <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
-          <div className="space-y-3">
-            <h3 className="tracki uppercase dark:text-gray-50">Product</h3>
+          <div className="space-y-3 text-white">
+            <h3 className=" uppercase text-white">Product</h3>
             <ul className="space-y-1">
               <li>
                 <a rel="noopener noreferrer" href="#">
@@ -40,8 +40,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="space-y-3">
-            <h3 className="tracki uppercase dark:text-gray-50">Company</h3>
+          <div className="space-y-3 text-white">
+            <h3 className="tracki uppercase text-white">Company</h3>
             <ul className="space-y-1">
               <li>
                 <a rel="noopener noreferrer" href="#">
@@ -55,8 +55,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="space-y-3">
-            <h3 className="uppercase dark:text-gray-50">Developers</h3>
+          <div className="space-y-3 text-white">
+            <h3 className="uppercase text-white">Developers</h3>
             <ul className="space-y-1">
               <li>
                 <a rel="noopener noreferrer" href="#">
@@ -75,8 +75,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="space-y-3">
-            <div className="uppercase dark:text-gray-50">Social media</div>
+          <div className="space-y-3 text-white">
+            <div className="uppercase text-white">Social media</div>
             <div className="flex justify-start space-x-3">
               <a
                 rel="noopener noreferrer"
@@ -126,7 +126,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center dark:text-gray-400">
+      <div className="py-6 text-sm text-center text-white">
         © 2023 Book Delibros Co. All rights reserved.
       </div>
     </footer>
