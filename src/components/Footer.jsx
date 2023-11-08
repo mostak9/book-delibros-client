@@ -1,5 +1,4 @@
 import LogoLight from '../assets/logo_light.png';
-import LogoDark from '../assets/logo_dark.png';
 
 const Footer = () => {
   return (

@@ -27,7 +27,7 @@ const BorrowedBooks = () => {
       </div>
     );
 
-  const TABLE_HEAD = ["Cover", "Title", "Author", "Return Date", ""];
+  const TABLE_HEAD = ["Cover", "Title", "Author", "Borrowed Date", "Return Date", ""];
 
   const handleReturn = async (id, bookId) => {
     console.log(id, bookId);
@@ -82,12 +82,12 @@ const BorrowedBooks = () => {
                   {TABLE_HEAD.map((head) => (
                     <th
                       key={head}
-                      className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+                      className="border-b font-bold border-blue-gray-100 bg-blue-gray-50 p-4"
                     >
                       <Typography
                         variant="small"
                         color="blue-gray"
-                        className="font-normal leading-none opacity-70"
+                        className="font-bold leading-none opacity-70"
                       >
                         {head}
                       </Typography>
@@ -96,7 +96,7 @@ const BorrowedBooks = () => {
                 </tr>
               </thead>
               <tbody>
-                {data.map(({ img, title, author, returnDate, bookId, _id }) => (
+                {data.map(({ img, title, author, returnDate, bookId, _id, borrowedDate }) => (
                   <tr key={_id} className="even:bg-blue-gray-50/50">
                     <td className="p-4">
                       <Typography
@@ -123,6 +123,15 @@ const BorrowedBooks = () => {
                         className="font-normal"
                       >
                         {author}
+                      </Typography>
+                    </td>
+                    <td className="p-4">
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {borrowedDate}
                       </Typography>
                     </td>
                     <td className="p-4">

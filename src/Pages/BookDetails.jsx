@@ -24,7 +24,6 @@ const BookDetails = () => {
   const handleOpen = () => setOpen(!open);
   const [isBorrow, setIsBorrow] = useState(true);
 
-
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["book"],
     queryFn: async () => {
@@ -33,11 +32,11 @@ const BookDetails = () => {
       );
 
       fetch(`http://localhost:5000/api/v1/borrowBook?email=${user.email}`)
-      .then(res => res.json())
-      .then(data => {
-        const book = data.find(book => book.bookId === params.id);
-        if(book) setIsBorrow(false);
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          const book = data.find((book) => book.bookId === params.id);
+          if (book) setIsBorrow(false);
+        });
       return res.data;
     },
     // refetchOnWindowFocus: true,
@@ -55,39 +54,56 @@ const BookDetails = () => {
     rating,
     imageLink,
     title,
-    category,
-    id,
     quantity,
     pages,
     year,
     description,
   } = data;
 
-  
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const borrowedDate = `${year}-${month}-${day}`;
+    console.log(borrowedDate);
+
+
+
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const returnDate = form.date.value;
-    const info = {name, email, returnDate, bookId: data._id, img: data.imageLink, title: data.title, author: data.author};
+    const info = {
+      name,
+      email,
+      returnDate,
+      borrowedDate,
+      bookId: data._id,
+      img: data.imageLink,
+      title: data.title,
+      author: data.author,
+    };
     console.log(info);
     handleOpen();
-    axios.post('http://localhost:5000/api/v1/borrowBook', info)
-    .then(res => {
+    axios.post("http://localhost:5000/api/v1/borrowBook", info).then((res) => {
       console.log(res.data);
-      if(res.data.insertedId && data.quantity) {
-        swal('Success!', "You borrowed the book", 'success');
-        axios.patch(`http://localhost:5000/api/v1/updateQuantity/${data._id}`, {quantity: data.quantity - 1}).then(res => {
-          console.log(res.data);
-          if(res.data.modifiedCount){
-            refetch();
-          }
-        })
+      if (res.data.insertedId && data.quantity) {
+        swal("Success!", "You borrowed the book", "success");
+        axios
+          .patch(`http://localhost:5000/api/v1/updateQuantity/${data._id}`, {
+            quantity: data.quantity - 1,
+          })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.modifiedCount) {
+              refetch();
+            }
+          });
       }
-    }
-    )
-  }
+    });
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
@@ -103,7 +119,9 @@ const BookDetails = () => {
         <button
           onClick={handleOpen}
           disabled={data.quantity && isBorrow ? false : true}
-          className={`btn btn-outline btn-wide text-primary-color border-primary-color  ${data.quantity && 'disabled'}`}
+          className={`btn btn-outline btn-wide text-primary-color border-primary-color  ${
+            data.quantity && "disabled"
+          }`}
         >
           Borrow The book
         </button>
