@@ -8,7 +8,10 @@ const OurInfo = () => {
     const [join, setJoin] = useState(false)
 
     return (
-        <div className='flex flex-col md:flex-row gap-14 items-center mt-20'>
+        <div className='flex flex-col md:flex-row gap-14 items-center mt-20'
+        data-aos="fade-up"
+     data-aos-duration="3000"
+        >
             <div className='lg:w-2/3 md:clip-style' >
                 <img src={Bg} className='w-full h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-1000 ' alt="" />
             </div>

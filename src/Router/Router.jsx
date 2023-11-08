@@ -30,7 +30,6 @@ import ErrorPage from "../Pages/ErrorPage";
             {
                 path: '/allBooks',
                 element: <PrivateRoute><AllBooks/></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/api/v1/allBooks')
             },
             {
                 path: '/borrowedBooks',
@@ -38,7 +37,7 @@ import ErrorPage from "../Pages/ErrorPage";
             },
             {
                 path: '/categorizedBooks/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/api/v1/allBooks?category=${params.id}`),
+                loader: ({params}) => fetch(`http://localhost:5000/api/v1/categorizedBooks?category=${params.id}`),
                 element:<PrivateRoute><CategorizedBooks/></PrivateRoute>
             },
             {

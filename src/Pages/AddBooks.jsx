@@ -1,7 +1,11 @@
 import axios from "axios";
+import { useContext } from "react";
 import swal from "sweetalert";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const AddBooks = () => {
+
+  const {user} = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -24,7 +28,7 @@ const AddBooks = () => {
             description, pages, link};
         console.log(bookData);
         
-        axios.post('http://localhost:5000/api/v1/addBook', bookData)
+        axios.post(`http://localhost:5000/api/v1/addBook?email=${user.email}`, bookData, {withCredentials: true})
         .then(res => {
             console.log(res.data);
             if(res.data.insertedId) {
