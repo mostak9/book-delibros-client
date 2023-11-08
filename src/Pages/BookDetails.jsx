@@ -24,12 +24,20 @@ const BookDetails = () => {
   const handleOpen = () => setOpen(!open);
   const [isBorrow, setIsBorrow] = useState(true);
 
+
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["book"],
     queryFn: async () => {
       const res = await axios.get(
         `http://localhost:5000/api/v1/allBooks/${params.id}`
       );
+
+      fetch(`http://localhost:5000/api/v1/borrowBook?email=${user.email}`)
+      .then(res => res.json())
+      .then(data => {
+        const book = data.find(book => book.bookId === params.id);
+        if(book) setIsBorrow(false);
+      })
       return res.data;
     },
     // refetchOnWindowFocus: true,
@@ -94,7 +102,7 @@ const BookDetails = () => {
 
         <button
           onClick={handleOpen}
-          disabled={data.quantity ? false : true}
+          disabled={data.quantity && isBorrow ? false : true}
           className={`btn btn-outline btn-wide text-primary-color border-primary-color  ${data.quantity && 'disabled'}`}
         >
           Borrow The book
