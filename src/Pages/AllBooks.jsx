@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import HeadBanner from "../components/HeadBanner";
 import Heading from "../components/Heading";
 import AllBooksCard from "../components/AllBooksCard";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, FreeMode } from "swiper/modules";
