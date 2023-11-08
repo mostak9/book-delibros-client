@@ -7,7 +7,7 @@ const ReadBook = () => {
     const {id} = useParams();
     const {data, isLoading} = useQuery({
         queryKey: ['book'],
-        queryFn: () => axios.get(`http://localhost:5000/api/v1/allBooks/${id}?read=true`).then(res => res.data),
+        queryFn: () => axios.get(`https://libraria-server-assignment-11.vercel.app/api/v1/allBooks/${id}?read=true`).then(res => res.data),
     })
     if (isLoading)
     return (
