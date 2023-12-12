@@ -20,7 +20,7 @@ const AllBooks = () => {
   const {data:loadedBooks, isLoading } = useQuery({
     queryKey: ["AllBooks"],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5000/api/v1/allBooks?email=${user.email}`,{withCredentials: true})
+      const res = await axios.get(`https://libraria-server-assignment-11.vercel.app/api/v1/allBooks?email=${user.email}`,{withCredentials: true})
       return res.data
     }
   })

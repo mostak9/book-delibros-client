@@ -30,10 +30,10 @@ const BookDetails = () => {
     queryKey: ["book"],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/allBooks/${params.id}`
+        `https://libraria-server-assignment-11.vercel.app/api/v1/allBooks/${params.id}`
       );
 
-      fetch(`http://localhost:5000/api/v1/borrowBook?email=${user.email}`)
+      fetch(`https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           const book = data.find((book) => book.bookId === params.id);
@@ -88,12 +88,12 @@ const BookDetails = () => {
     };
     console.log(info);
     handleOpen();
-    axios.post("http://localhost:5000/api/v1/borrowBook", info).then((res) => {
+    axios.post("https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook", info).then((res) => {
       console.log(res.data);
       if (res.data.insertedId && data.quantity) {
         swal("Success!", "You borrowed the book", "success");
         axios
-          .patch(`http://localhost:5000/api/v1/updateQuantity/${data._id}`, {
+          .patch(`https://libraria-server-assignment-11.vercel.app/api/v1/updateQuantity/${data._id}`, {
             quantity: data.quantity - 1,
           })
           .then((res) => {
@@ -117,7 +117,7 @@ const BookDetails = () => {
     };
     console.log(reviewData);
     axios
-      .patch(`http://localhost:5000/api/v1/addReview/${data._id}`, reviewData)
+      .patch(`https://libraria-server-assignment-11.vercel.app/api/v1/addReview/${data._id}`, reviewData)
       .then((res) => {
         
         if(res.data.modifiedCount){
@@ -322,7 +322,7 @@ const BookDetails = () => {
         <div>
           <h1 className="text-2xl font-bold mb-8">Book Reviews</h1>
           <div>
-            {reviews.map((review, idx) => (
+            {reviews?.map((review, idx) => (
               <div key={idx}>
               <div className="flex gap-5 " >
                 <div className="flex flex-col items-center">
