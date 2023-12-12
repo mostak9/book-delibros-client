@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         path: "/categorizedBooks/:id",
         loader: ({ params }) =>
           fetch(
-            `https://libraria-server-assignment-11.vercel.app/api/v1/categorizedBooks?category=${params.id}`
+            `http://localhost:5000/api/v1/categorizedBooks?category=${params.id}`
           ),
         element: (
           <PrivateRoute>
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://libraria-server-assignment-11.vercel.app/api/v1/allBooks/${params.id}`
+            `http://localhost:5000/api/v1/allBooks/${params.id}`
           ),
       },
     ],

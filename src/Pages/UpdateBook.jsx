@@ -31,7 +31,7 @@ const UpdateBook = () => {
     };
     console.log(bookData);
     axios.put(
-      `https://libraria-server-assignment-11.vercel.app/api/v1/updateBook/${data._id}`,
+      `http://localhost:5000/api/v1/updateBook/${data._id}`,
       bookData
     ).then(res => {
         console.log(res.data)
