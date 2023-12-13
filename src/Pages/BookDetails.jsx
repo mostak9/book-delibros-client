@@ -141,7 +141,8 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+    <div className="container mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
       <div className="flex flex-col items-center gap-4">
         <img src={imageLink} className="w-2/3 mx-auto" alt="" />
         <Link
@@ -375,6 +376,7 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

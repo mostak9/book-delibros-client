@@ -71,7 +71,8 @@ const Navbar = () => {
   return (
     <div className="bg-base-100">
       <div>
-        <div className="pb-5 px-2 md:px-10 pt-4 flex justify-between items-center border-b-2 border-b-neutral-500">
+        <div className="border-b-2 border-b-neutral-500">
+        <div className="container mx-auto pb-5 px-2 md:px-10 pt-4 flex justify-between items-center ">
           <Link to={"/"} className="btn btn-ghost normal-case text-xl">
             <img
               src={isDark ? LogoLight : LogoDark}
@@ -106,7 +107,7 @@ const Navbar = () => {
                     <li>
                       <a className="justify-between">
                         {user.displayName}
-                        <span className="badge">New</span>
+                        
                       </a>
                     </li>
                     
@@ -120,9 +121,7 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="font-bold mt-2 text-xs">
-                {user.displayName}
-              </div>
+               
                 </div>
               ) : (
                 <Link
@@ -135,8 +134,8 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
-        <div className="navbar">
+        </div>
+        <div className="navbar container mx-auto">
           <div className="lg:navbar-start w-full flex justify-between">
             {/* <a className="btn btn-ghost normal-case text-xl"><img src={isDark ? LogoLight : LogoDark} className="w-full h-full object-fill" alt="" /></a> */}
             <div className="dropdown">

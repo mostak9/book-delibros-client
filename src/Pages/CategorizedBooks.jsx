@@ -8,7 +8,7 @@ const CategorizedBooks = () => {
     const books = useLoaderData();
     const params = useParams()
     return (
-        <div>
+        <div className="container mx-auto">
             <HeadBanner title={params.id.toLocaleUpperCase()}/>
 
 

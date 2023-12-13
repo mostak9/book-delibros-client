@@ -44,7 +44,7 @@ const UpdateBook = () => {
   };
 
   return (
-    <div className=" backdrop-blur bg-primary-color/40 min-h-screen mt-14 pt-4 pb-14 rounded-md">
+    <div className="container mx-auto backdrop-blur bg-primary-color/40 min-h-screen mt-14 pt-4 pb-14 rounded-md">
       <div className="text-center mt-5 mb-6">
         <h1 className="text-3xl text-black font-bold">Update Book</h1>
         <hr className="border-2 border-primary-color max-w-[120px] my-4 mx-auto rounded-md" />

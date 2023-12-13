@@ -37,19 +37,10 @@ const AddBooks = () => {
             }
         })
 
-        // fetch('https://libraria-server-assignment-11.vercel.app/api/v1/addBook', {
-        //     method: "POST",
-        //     headers:  {
-        //         'content-type': 'application/json',
-        //     },
-        //     body: JSON.stringify(bookData)
-        // })
-        // .then(res => res.json())
-        // .then(data => console.log(data))
         
     }
   return (
-    <div className=" backdrop-blur bg-primary-color/40 min-h-screen mt-14 pt-4 pb-14 rounded-md">
+    <div className=" container mx-auto backdrop-blur bg-primary-color/40 min-h-screen mt-14 pt-4 pb-14 rounded-md">
         <div className="text-center mt-5 mb-6">
         <h1 className="text-3xl text-black font-bold">Add Book</h1>
         <hr className="border-2 border-primary-color max-w-[120px] my-4 mx-auto rounded-md" />

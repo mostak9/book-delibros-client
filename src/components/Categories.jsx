@@ -15,7 +15,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const Categories = () => {
   return (
-    <div className="mt-10">
+    <div className="container mx-auto">
+      <div className="mt-10">
       <Heading title="Browse By Category" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mx-5 md:mx-0">
@@ -120,6 +121,7 @@ const Categories = () => {
           </CardFooter>
         </Card>
       </div>
+    </div>
     </div>
   );
 };

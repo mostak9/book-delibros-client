@@ -28,7 +28,7 @@ const MainLayout = () => {
   return (
     <ThemeContext.Provider value={themeInfo}>
       <div data-theme={isDark ?  'dark' : 'light'}>
-      <div className="max-w-7xl mx-auto">
+      <div >
         <Navbar />
         <Outlet />
         <Footer/>

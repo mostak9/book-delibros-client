@@ -25,7 +25,7 @@ const ReadBook = () => {
     );
 
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="text-center px-5">
         <h1 className="text-4xl font-bold">{data.title}</h1>
         <p className="text-xl">by {data.author}</p>

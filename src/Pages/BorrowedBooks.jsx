@@ -27,7 +27,14 @@ const BorrowedBooks = () => {
       </div>
     );
 
-  const TABLE_HEAD = ["Cover", "Title", "Author", "Borrowed Date", "Return Date", ""];
+  const TABLE_HEAD = [
+    "Cover",
+    "Title",
+    "Author",
+    "Borrowed Date",
+    "Return Date",
+    "",
+  ];
 
   const handleReturn = async (id, bookId) => {
     console.log(id, bookId);
@@ -47,7 +54,9 @@ const BorrowedBooks = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://libraria-server-assignment-11.vercel.app/api/v1/deleteBorrowedBook/${id}`)
+          .delete(
+            `https://libraria-server-assignment-11.vercel.app/api/v1/deleteBorrowedBook/${id}`
+          )
           .then((res) => {
             console.log(res.data);
             if (res.data.deletedCount) {
@@ -71,7 +80,7 @@ const BorrowedBooks = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto">
       {data ? (
         <div>
           <Heading title="Your Borrowed Books" />
@@ -96,82 +105,92 @@ const BorrowedBooks = () => {
                 </tr>
               </thead>
               <tbody>
-                {data.map(({ img, title, author, returnDate, bookId, _id, borrowedDate }) => (
-                  <tr key={_id} className="even:bg-blue-gray-50/50">
-                    <td className="p-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        <img src={img} className="w-20" alt="" />
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        {title}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        {author}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        {borrowedDate}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        {returnDate}
-                      </Typography>
-                    </td>
-                    <td className="p-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal flex flex-col gap-2 items-center"
-                      >
-                        <Link to={`/readBook/${bookId}`}>
+                {data.map(
+                  ({
+                    img,
+                    title,
+                    author,
+                    returnDate,
+                    bookId,
+                    _id,
+                    borrowedDate,
+                  }) => (
+                    <tr key={_id} className="even:bg-blue-gray-50/50">
+                      <td className="p-4">
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          <img src={img} className="w-20" alt="" />
+                        </Typography>
+                      </td>
+                      <td className="p-4">
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {title}
+                        </Typography>
+                      </td>
+                      <td className="p-4">
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {author}
+                        </Typography>
+                      </td>
+                      <td className="p-4">
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {borrowedDate}
+                        </Typography>
+                      </td>
+                      <td className="p-4">
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {returnDate}
+                        </Typography>
+                      </td>
+                      <td className="p-4">
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal flex flex-col gap-2 items-center"
+                        >
+                          <Link to={`/readBook/${bookId}`}>
+                            <Button
+                              size="sm"
+                              className="flex items-center gap-1"
+                              color="blue"
+                            >
+                              Read
+                              <AiFillRead />
+                            </Button>
+                          </Link>
                           <Button
+                            onClick={() => handleReturn(_id, bookId)}
                             size="sm"
                             className="flex items-center gap-1"
-                            color="blue"
+                            color="red"
                           >
-                            Read
-                            <AiFillRead />
+                            Return
+                            <GiReturnArrow />
                           </Button>
-                        </Link>
-                        <Button
-                          onClick={() => handleReturn(_id, bookId)}
-                          size="sm"
-                          className="flex items-center gap-1"
-                          color="red"
-                        >
-                          Return
-                          <GiReturnArrow />
-                        </Button>
-                      </Typography>
-                    </td>
-                  </tr>
-                ))}
+                        </Typography>
+                      </td>
+                    </tr>
+                  )
+                )}
               </tbody>
             </table>
           </Card>
