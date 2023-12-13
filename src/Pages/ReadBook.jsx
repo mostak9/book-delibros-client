@@ -12,7 +12,7 @@ const ReadBook = () => {
     queryFn: () =>
       axios
         .get(
-          `http://localhost:5000/api/v1/allBooks/${id}?read=true`
+          `https://libraria-server-assignment-11.vercel.app/api/v1/allBooks/${id}?read=true`
         )
         .then((res) => res.data),
   });

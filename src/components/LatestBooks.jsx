@@ -7,7 +7,7 @@ const LatestBooks = () => {
     const {data: books, isLoading} = useQuery({
         queryKey: ['books'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/latestEditions')
+            const res = await axios.get('https://libraria-server-assignment-11.vercel.app/api/v1/latestEditions')
             return res.data;
         }
     })

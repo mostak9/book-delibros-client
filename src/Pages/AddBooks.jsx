@@ -28,7 +28,7 @@ const AddBooks = () => {
             description, pages, link};
         console.log(bookData);
         
-        axios.post(`http://localhost:5000/api/v1/addBook?email=${user.email}`, bookData, {withCredentials: true})
+        axios.post(`https://libraria-server-assignment-11.vercel.app/api/v1/addBook?email=${user.email}`, bookData, {withCredentials: true})
         .then(res => {
             console.log(res.data);
             if(res.data.insertedId) {
