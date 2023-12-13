@@ -33,7 +33,9 @@ const BookDetails = () => {
         `https://libraria-server-assignment-11.vercel.app/api/v1/allBooks/${params.id}`
       );
 
-      fetch(`https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook?email=${user.email}`)
+      fetch(
+        `https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           const book = data.find((book) => book.bookId === params.id);
@@ -88,22 +90,30 @@ const BookDetails = () => {
     };
     console.log(info);
     handleOpen();
-    axios.post("https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook", info).then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId && data.quantity) {
-        swal("Success!", "You borrowed the book", "success");
-        axios
-          .patch(`https://libraria-server-assignment-11.vercel.app/api/v1/updateQuantity/${data._id}`, {
-            quantity: data.quantity - 1,
-          })
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.modifiedCount) {
-              refetch();
-            }
-          });
-      }
-    });
+    axios
+      .post(
+        "https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook",
+        info
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId && data.quantity) {
+          swal("Success!", "You borrowed the book", "success");
+          axios
+            .patch(
+              `https://libraria-server-assignment-11.vercel.app/api/v1/updateQuantity/${data._id}`,
+              {
+                quantity: data.quantity - 1,
+              }
+            )
+            .then((res) => {
+              console.log(res.data);
+              if (res.data.modifiedCount) {
+                refetch();
+              }
+            });
+        }
+      });
   };
 
   const addReview = (event) => {
@@ -117,10 +127,12 @@ const BookDetails = () => {
     };
     console.log(reviewData);
     axios
-      .patch(`https://libraria-server-assignment-11.vercel.app/api/v1/addReview/${data._id}`, reviewData)
+      .patch(
+        `https://libraria-server-assignment-11.vercel.app/api/v1/addReview/${data._id}`,
+        reviewData
+      )
       .then((res) => {
-        
-        if(res.data.modifiedCount){
+        if (res.data.modifiedCount) {
           swal("Success!", "Review Added", "success");
           form.reset();
           refetch();
@@ -324,23 +336,24 @@ const BookDetails = () => {
           <div>
             {reviews?.map((review, idx) => (
               <div key={idx}>
-              <div className="flex gap-5 " >
-                <div className="flex flex-col items-center">
-                  <div><img src={review.img} className="w-11 h-11 rounded-full" alt="" /></div>
-                  <div className="text-xs font-medium">{review.name}</div>
+                <div className="flex gap-5 ">
+                  <div className="flex flex-col items-center">
+                    <div>
+                      <img
+                        src={review.img}
+                        className="w-11 h-11 rounded-full"
+                        alt=""
+                      />
+                    </div>
+                    <div className="text-xs font-medium">{review.name}</div>
+                  </div>
+                  <div>{review.review}</div>
                 </div>
-                <div>
-                  {
-                    review.review
-                  }
-                </div>
-                
-              </div>
-              <div className="divider"></div>
+                <div className="divider"></div>
               </div>
             ))}
           </div>
-          
+
           <div>
             <form onSubmit={addReview} action="">
               <div className="relative max-w-[32rem]">

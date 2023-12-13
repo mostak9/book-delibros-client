@@ -1,84 +1,124 @@
 import Heading from "./Heading";
-import career from "../assets/categories/career.png";
-import novel from "../assets/categories/novel.png";
-import technology from "../assets/categories/thechnoloy.png";
-import astronomy from "../assets/categories/astrology.png";
+import career from "../assets/categories/career.svg";
+import technology from "../assets/categories/technology.svg";
+import astronomy from "../assets/categories/astronomy.svg";
+import novel from "../assets/categories/book.svg";
 import { Link } from "react-router-dom";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+} from "@material-tailwind/react";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Categories = () => {
   return (
     <div className="mt-10">
       <Heading title="Browse By Category" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 ">
-        <div className="max-w-sm mx-auto  border border-gray-200 rounded-lg shadow dark:border-gray-700">
-          <div className="pt-5 relative h-44">
-            <img
-              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
-              src={novel}
-              alt=""
-            />
-            <h5 className="mb-2 text-2xl font-bold tracking-tigh w-full backdrop-brightness-50 hover:backdrop-brightness-75 duration-500 text-center py-5 absolute -bottom-3 text-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mx-5 md:mx-0">
+        <Card className=" shadow-lg border-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500">
+          <CardBody>
+            <div className="mb-6">
+              <img src={novel} className="w-1/2 mx-auto" alt="" />
+            </div>
+            <Typography
+              variant="h3"
+              color="blue-gray"
+              className="mb-2 text-center"
+            >
               Novels
-            </h5>
-          </div>
-          <div className="p-5">
-            <Link to={'/categorizedBooks/novel'} className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
-              Browse
+            </Typography>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Link to={"/categorizedBooks/novel"}>
+              <Button
+                variant="text"
+                size="lg"
+                className=" text-primary-color flex items-center gap-1"
+              >
+                Browse <FaArrowRightLong className="text-2xl" />
+              </Button>
             </Link>
-          </div>
-        </div>
-        <div className="max-w-sm mx-auto  border border-gray-200 rounded-lg shadow dark:border-gray-700">
-          <div className="pt-5 relative h-44">
-            <img
-              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
-              src={career}
-              alt=""
-            />
-            <h5 className="mb-2 text-2xl font-bold tracking-tigh w-full backdrop-brightness-50 hover:backdrop-brightness-75 duration-500 text-center py-5 absolute -bottom-3 text-white">
+          </CardFooter>
+        </Card>
+        <Card className=" shadow-lg border-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500">
+          <CardBody>
+            <div className="mb-6">
+              <img src={career} className="w-1/2 mx-auto" alt="" />
+            </div>
+            <Typography
+              variant="h3"
+              color="blue-gray"
+              className="mb-2 text-center"
+            >
               Career
-            </h5>
-          </div>
-          <div className="p-5">
-            <Link to={'/categorizedBooks/career'} className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
-              Browse
+            </Typography>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Link to={"/categorizedBooks/career"}>
+              <Button
+                variant="text"
+                size="lg"
+                className=" text-primary-color flex items-center gap-1"
+              >
+                Browse <FaArrowRightLong className="text-2xl" />
+              </Button>
             </Link>
-          </div>
-        </div>
-        <div className="max-w-sm mx-auto  border border-gray-200 rounded-lg shadow dark:border-gray-700">
-          <div className="pt-5 relative h-44">
-            <img
-              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
-              src={technology}
-              alt=""
-            />
-            <h5 className="mb-2 text-2xl font-bold tracking-tigh w-full backdrop-brightness-50 hover:backdrop-brightness-75 duration-500 text-center py-5 absolute -bottom-3 text-white">
+          </CardFooter>
+        </Card>
+        <Card className=" shadow-lg border-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500">
+          <CardBody>
+            <div className="mb-6">
+              <img src={technology} className="w-1/2 mx-auto" alt="" />
+            </div>
+            <Typography
+              variant="h3"
+              color="blue-gray"
+              className="mb-2 text-center"
+            >
               Technology
-            </h5>
-          </div>
-          <div className="p-5">
-            <Link to={'/categorizedBooks/technology'} className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
-              Browse
+            </Typography>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Link to={"/categorizedBooks/technology"}>
+              <Button
+                variant="text"
+                size="lg"
+                className=" text-primary-color flex items-center gap-1"
+              >
+                Browse <FaArrowRightLong className="text-2xl" />
+              </Button>
             </Link>
-          </div>
-        </div>
-        <div className="max-w-sm  mx-auto  border border-gray-200 rounded-lg shadow dark:border-gray-700">
-          <div className="pt-5 relative h-44">
-            <img
-              className="rounded-t-lg w-3/4 mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500"
-              src={astronomy}
-              alt=""
-            />
-            <h5 className="mb-2 text-2xl font-bold tracking-tigh w-full backdrop-brightness-50 hover:backdrop-brightness-75 duration-500 text-center py-5 absolute -bottom-3 text-white">
+          </CardFooter>
+        </Card>
+        <Card className=" shadow-lg border-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-500">
+          <CardBody>
+            <div className="mb-6">
+              <img src={astronomy} className="w-1/2 mx-auto" alt="" />
+            </div>
+            <Typography
+              variant="h3"
+              color="blue-gray"
+              className="mb-2 text-center"
+            >
               Astronomy
-            </h5>
-          </div>
-          <div className="p-5">
-            <Link to={'/categorizedBooks/astronomy'} className="btn btn-wide bg-primary-color text-white hover:text-primary-color">
-              Browse
+            </Typography>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Link to={"/categorizedBooks/astronomy"}>
+              <Button
+                variant="text"
+                size="lg"
+                className=" text-primary-color flex items-center gap-1"
+              >
+                Browse <FaArrowRightLong className="text-2xl" />
+              </Button>
             </Link>
-          </div>
-        </div>
+          </CardFooter>
+        </Card>
       </div>
     </div>
   );
