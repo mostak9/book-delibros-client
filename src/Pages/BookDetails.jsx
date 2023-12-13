@@ -30,11 +30,11 @@ const BookDetails = () => {
     queryKey: ["book"],
     queryFn: async () => {
       const res = await axios.get(
-        `https://libraria-server-assignment-11.vercel.app/api/v1/allBooks/${params.id}`
+        `http://localhost:5000/api/v1/allBooks/${params.id}`
       );
 
       fetch(
-        `https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook?email=${user.email}`
+        `http://localhost:5000/api/v1/borrowBook?email=${user.email}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -92,7 +92,7 @@ const BookDetails = () => {
     handleOpen();
     axios
       .post(
-        "https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook",
+        "http://localhost:5000/api/v1/borrowBook",
         info
       )
       .then((res) => {
@@ -101,7 +101,7 @@ const BookDetails = () => {
           swal("Success!", "You borrowed the book", "success");
           axios
             .patch(
-              `https://libraria-server-assignment-11.vercel.app/api/v1/updateQuantity/${data._id}`,
+              `http://localhost:5000/api/v1/updateQuantity/${data._id}`,
               {
                 quantity: data.quantity - 1,
               }
@@ -128,7 +128,7 @@ const BookDetails = () => {
     console.log(reviewData);
     axios
       .patch(
-        `https://libraria-server-assignment-11.vercel.app/api/v1/addReview/${data._id}`,
+        `http://localhost:5000/api/v1/addReview/${data._id}`,
         reviewData
       )
       .then((res) => {

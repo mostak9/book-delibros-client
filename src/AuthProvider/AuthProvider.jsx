@@ -60,13 +60,13 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       const user = { email: currentUser?.email };
       if (user.email) {
-        axios.post("https://libraria-server-assignment-11.vercel.app/api/v1/jwt", user, {withCredentials: true}).then((res) => {
+        axios.post("http://localhost:5000/api/v1/jwt", user, {withCredentials: true}).then((res) => {
           console.log(res.data);
         });
       }
       else {
         axios
-          .post("https://libraria-server-assignment-11.vercel.app/jwt/logout", user, {
+          .post("http://localhost:5000/jwt/logout", user, {
             withCredentials: true,
           })
           .then((res) => console.log(res.data));

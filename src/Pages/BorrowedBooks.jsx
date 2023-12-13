@@ -15,7 +15,7 @@ const BorrowedBooks = () => {
     queryKey: ["borrowedBooks"],
     queryFn: async () => {
       const res = await axios.get(
-        `https://libraria-server-assignment-11.vercel.app/api/v1/borrowBook?email=${user.email}`
+        `http://localhost:5000/api/v1/borrowBook?email=${user.email}`
       );
       return res.data;
     },
@@ -40,7 +40,7 @@ const BorrowedBooks = () => {
     console.log(id, bookId);
 
     const res = await axios.get(
-      `https://libraria-server-assignment-11.vercel.app/api/v1/allBooks/${bookId}?read=true`
+      `http://localhost:5000/api/v1/allBooks/${bookId}?read=true`
     );
     const originalBook = res.data;
     console.log(originalBook);
@@ -55,14 +55,14 @@ const BorrowedBooks = () => {
       if (willDelete) {
         axios
           .delete(
-            `https://libraria-server-assignment-11.vercel.app/api/v1/deleteBorrowedBook/${id}`
+            `http://localhost:5000/api/v1/deleteBorrowedBook/${id}`
           )
           .then((res) => {
             console.log(res.data);
             if (res.data.deletedCount) {
               axios
                 .patch(
-                  `https://libraria-server-assignment-11.vercel.app/api/v1/updateQuantity/${bookId}`,
+                  `http://localhost:5000/api/v1/updateQuantity/${bookId}`,
                   { quantity: originalBook.quantity + 1 }
                 )
                 .then(() => {
